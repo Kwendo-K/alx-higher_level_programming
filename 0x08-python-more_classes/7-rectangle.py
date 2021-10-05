@@ -29,7 +29,7 @@ class Rectangle():
         __del__(self)
     """
     number_of_instances = 0
-    s = "#"
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """ Initialize rectangles """
@@ -84,7 +84,7 @@ class Rectangle():
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
             return ""
-        r = "\n".join([str(self.s)*self.width for rows in range(self.height)])
+        r = "\n".join([str(self.print_symbol)*self.width for rows in range(self.height)])
         return r
 
     def __repr__(self):
