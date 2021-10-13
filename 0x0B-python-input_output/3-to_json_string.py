@@ -4,5 +4,9 @@ import json
 
 
 def to_json_string(my_obj):
-    """writing json data to a file"""
+    """
+    writing json data to a file
+    args: my_obj
+    return: jsos file
+    """
     return json.dumps(my_obj)
