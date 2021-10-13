@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
 this functions reads contents from a file
-args: filename
+args: filename, mode, encoding
 """
 
 
 def read_file(filename=""):
-    with open(filename, 'r') as f:
+    with open(filename, mode='r', encoding='utf-8') as f:
         data = f.read()
         print(data)
