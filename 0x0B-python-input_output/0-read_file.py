@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-this functions reads contents from a file
-args: filename, mode, encoding
-"""
+"""this function reads contents from a file"""
 
 
 def read_file(filename=""):
