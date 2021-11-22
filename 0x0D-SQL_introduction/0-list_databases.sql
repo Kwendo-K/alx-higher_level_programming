@@ -1,2 +1,2 @@
 #!/bin/bash
-mysql -hlocalhost -uroot -p
+mysql -u root -p -e 'show databases;'
