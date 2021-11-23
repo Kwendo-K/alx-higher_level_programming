@@ -1,2 +1,2 @@
---a script line that disaplays lists of databases on mysql server
+/*a script line that displays lists of databases on mysql server*/
 SHOW DATABASES;
