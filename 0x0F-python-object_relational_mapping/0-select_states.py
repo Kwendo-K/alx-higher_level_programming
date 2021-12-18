@@ -12,10 +12,12 @@ cur = myconn.cursor()
 
 try:
     cur.execute("SELECT * FROM states")
+    rows = cur.fetchall()
 except Exception:
     myconn.rollback()
 
-for r in cur:
-    print(r)
+for row in rows:
+    print(row)
 
+cur.close()
 myconn.close()
