@@ -16,12 +16,11 @@ try:
     # Executing the sql command
     cur.execute(sql)
     # Commiting changes in the database
-    results = cur.fetchall()# Fetcthing all names in states
+    results = cur.fetchall()
+    # Fetcthing all names in states
     for row in cur:
         print(row)
-
 except Exception:
-    myconn.rollback()
     print("Unable to fetch data")
 
 # Closing the database connection
