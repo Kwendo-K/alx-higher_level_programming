@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import MySQLdb
-
 """
 A python script that displays all state names
 from hbtn_0e_0_usa database
@@ -11,14 +10,18 @@ myconn = MySQLdb.connect(host="localhost", user="root", passwd="Asila@1991",
 # Preparing a cursor object using a cursor method
 cur = myconn.cursor()
 
-# Executing a query that gets all state names
+# Preparing a query that gets all state names
+sql = """SELECT * FROM states"""
 try:
-    cur.execute("SELECT * FROM states")
-    rows = cur.fetchall()
+    # Executing the sql command
+    cur.execute(sql)
+    # Commiting changes in the database
+    results = cur.fetchall()
 except Exception:
     myconn.rollback()
 
-for row in rows:
+# Fetcthing all names in states
+for row in cur:
     print(row)
 
 # Closing the database connection
