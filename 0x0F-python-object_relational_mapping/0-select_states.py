@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 import MySQLdb
+from sys import argv
 """
 A python script that displays all state names
 from hbtn_0e_0_usa database
 """
 # Open database connection
-myconn = MySQLdb.connect(host="localhost", user="root", passwd="Asila@1991",
-                         db="hbtn_0e_0_usa")
+myconn = MySQLdb.connect(host="localhost", user=argv[1], passwd=argv[2],
+                         port=3306, db=argv[3])
 
 # Preparing a cursor object using a cursor method
 cur = myconn.cursor()
