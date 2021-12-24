@@ -1,30 +1,25 @@
 #!/usr/bin/python3
+"""
+return all table values (table 'states')
+parameters given to script: username, password, database
+"""
+
 import MySQLdb
 from sys import argv
-"""
-A python script that displays all state names
-from hbtn_0e_0_usa database
-"""
+
 if __name__ == "__main__":
 
-    # Open database connection
-    myconn = MySQLdb.connect(host="localhost", user=argv[1], passwd=argv[2],
-                             port=3306, db=argv[3])
+    # connect to database
+    db = MySQLdb.connect(host="localhost",
+                         port=3306,
+                         user=argv[1],
+                         passwd=argv[2],
+                         db=argv[3])
 
-    # Preparing a cursor object using a cursor method
-    cur = myconn.cursor()
-    # Preparing a query that gets all state names
-    sql = """SELECT * FROM states"""
-    try:
-        # Executing the sql command
-        cur.execute(sql)
-        # Commiting changes in the database
-        results = cur.fetchall()
-        # Fetcthing all names in states
-        for row in cur:
-            print(row)
-    except Exception:
-        print("Unable to fetch data")
-
-    # Closing the database connection
-    myconn.close()
+    # create cursor to exec queries using SQL
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    for row in cursor.fetchall():
+        print(row)
+    cursor.close()
+    db.close()
